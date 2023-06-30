@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+{% block title %} {{user.full_name}} {% endblock %}
+{% block content %}
+
+<div class="row">
+    {% if user.image_url %}
+    <div>
+        <img src="{{user.image_url}}" alt="{{user.full_name}}">
+    </div>
+    {% endif %}
+
+    <div>
+        <h1>{{user.full_name}}</h1>
+    
+        <form>
+            <button class="btn btn-outline-primary" formaction="/users/{{user.id}}/edit"
+            formmethod="get">Edit</button>
+
+            <button class="btn btn-outline-danger" formaction="/users/{{user.id}}/delete"
+            formmethod="post">Delete</button>
+        </form>
+        <p><a class="btn btn-outline-secondary" href="/users">Back to Users</a></p>
+        <h2>Posts</h2>
+        <ul>
+            {% for post in user.posts %}
+            <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
+            {% endfor %}
+        </ul>
+        <p><a href="/users/{{user.id}}/posts/new" class="btn btn-outline-primary">Add Post</a></p>
+    </div>
+
+</div>
+
+{% endblock %}

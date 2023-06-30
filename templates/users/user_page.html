@@ -1,0 +1,14 @@
+{% extends 'index.html'%}
+{% block title %} Users {% endblock %}
+{%  block content %}
+<h1>Users</h1>
+<ul name="users_list">
+{% for user in users %}
+    <li> <a href="/users/{{user.id}}">{{user.full_name}}</a> </li>
+    {% endfor %}
+</ul>
+<p><a class="btn btn-outline-primary" href="/users/new">Add User</a>
+<a class="btn btn-outline-secondary" href="/tags">Tags Page</a>
+</p>
+
+{% endblock  %}
