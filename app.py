@@ -5,7 +5,7 @@ from models import db, connect_db,User,Post,Tag
 from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:graygirl@localhost:5433/blogly'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['SECRET_KEY'] = 'f724'
